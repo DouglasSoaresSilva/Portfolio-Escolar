@@ -55,11 +55,12 @@ Este repositório possui todos os materiais produzidos durante o curso **DS/AMS*
 ## 🚀 Progresso
  
 - [x] 1° Ano — 2025 *(concluído)*
-- [ ] 2° Semestre — 2026 *(em progresso)*
+- [ ] 2° Ano — 2026 *(em progresso)*
+- [ ] 3° Ano - 2027  *(em breve)*
 ---
  
 ## 📬 Contato
  
-E-mail: douglas201003@gmail.com
-Telefone: +55 11 97828-3092
+E-mail: douglas201003@gmail.com <br>
+Telefone: +55 11 97828-3092 <br>
 LinkedIn: linkedin.com/in/douglas-soares-silva-a867bb330
