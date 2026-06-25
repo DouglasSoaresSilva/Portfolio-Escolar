@@ -1,0 +1,48 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonte moderna */
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background-color: #FBFBF9;
+    color: #2D2D2D;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Caixa simulando container */
+body::before {
+    content: "";
+}
+
+
+/* Criando um "card" visual */
+body{
+    background: #FBFBF9;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    max-width: 420px;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #111827;
+    text-align: center;
+
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    body > * {
+        padding: 25px;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Caixa do formulário */
+form {
+    background: #fbfbfb;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    width: 250px;
+}
+
+/* Texto */
+form {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Inputs */
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Botão */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: #fbfbf9;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Hover do botão */
+input[type="submit"]:hover {
+    background: #43a047;
+}
