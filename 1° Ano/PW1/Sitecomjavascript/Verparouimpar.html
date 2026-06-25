@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador Par/Ímpar</title>
+    <link rel="stylesheet" href="StyleCalculadora.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <strong><h1>Verificador de Número</h1></strong>
+            <nav>
+                <a href="Calcidade.html">Calcular Idade</a>
+                <a href="Verparouimpar.html">Verificar Par/Ímpar</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Verifique se um número é Par ou Ímpar</h2>
+                <div class="input-group">
+                    <label for="numero">Digite um número:</label>
+                    <input type="number" id="numero" placeholder="Digite um número">
+                </div>
+                <button onclick="verificarParImpar()">Verificar</button>
+                <div id="resultadoParImpar" class="resultado"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="Verparouimpar.js"></script>
+</body>
+</html>
