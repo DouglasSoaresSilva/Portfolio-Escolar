@@ -56,7 +56,7 @@ Este repositório possui todos os materiais produzidos durante o curso **DS/AMS*
  
 - [x] 1° Ano — 2025 *(concluído)*
 - [ ] 2° Ano — 2026 *(em progresso)*
-- [ ] 3° Ano - 2027  *(em breve)*
+- [ ] 3° Ano — 2027  *(em breve)*
 ---
  
 ## 📬 Contato
