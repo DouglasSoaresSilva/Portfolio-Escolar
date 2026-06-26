@@ -61,4 +61,4 @@ Este repositório possui todos os materiais produzidos durante o curso **DS/AMS*
  
 ## 📬 Contato
  
-E-mail: douglas201003@gmail.com | Telefone: +55 11 97828-3092 | LinkedIn: linkedin.com/in/douglas-soares-silva-a867bb330
+E-mail: douglas201003@gmail.com | LinkedIn: linkedin.com/in/douglas-soares-silva-a867bb330 | Telefone: +55 11 97828-3092 |
