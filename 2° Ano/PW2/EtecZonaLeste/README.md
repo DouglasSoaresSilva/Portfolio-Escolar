@@ -59,9 +59,7 @@ EtecZonaLeste/
 
 ### 📽️Video
 
-
-https://github.com/user-attachments/assets/333854b7-0e8d-4c6c-a7f3-b475e588b38b
-
+https://github.com/user-attachments/assets/fe7d6bcb-ab01-484f-8ba1-60e19d99754e
 
 
 ## 🎨 Recursos
