@@ -8,11 +8,12 @@ Este projeto implementa um website funcional para a Etec da Zona Leste, incluind
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **PHP** - Backend e processamento de formulários
-- **HTML5** - Estrutura das páginas
-- **CSS3** - Estilização e layouts personalizados
-- **Bootstrap 5.3** - Framework CSS para responsividade
-- **Google Fonts** - Tipografia (Roboto)
+- **PHP** - Backend e processamento de formulários.
+- **HTML5** - Estrutura das páginas.
+- **CSS3** - Estilização e layouts personalizados.
+- **Bootstrap 5.3** - Framework CSS para responsividade.
+- **Google Fonts** - Tipografia (Roboto).
+- **JavaScript** - Script de validação de campos do formulário.
 
 ## 📁 Estrutura do Projeto
 
@@ -23,6 +24,7 @@ EtecZonaLeste/
 ├── gestao.php          # Página de gestão
 ├── contato.php         # Página e formulário de contato
 ├── processar.php       # Script de processamento de formulários
+├── script.js           # Script de validação de campos
 └── CSS/
     └── style.css       # Estilos personalizados
 ```
@@ -56,6 +58,34 @@ EtecZonaLeste/
 ### `processar.php`
 - Backend para processar dados enviados pelo formulário
 - Validação e manipulação de dados
+
+### `script.js` - Funcionalidades Client-Side
+- ✅ **Validação de campos:**
+  - Nome (mínimo 3 caracteres)
+  - E-mail (validação de formato)
+  - Assunto (obrigatório)
+  - Mensagem (mínimo 10 caracteres, máximo 500)
+  - Aceite à Política de Privacidade
+- 📞 **Máscara de telefone** - Formatação automática: (XX) XXXXX-XXXX
+- 📝 **Contador de caracteres** - Feedback visual enquanto digita
+- 🎨 **Estado visual dos campos** - Classes CSS para erros e sucesso
+- ⚙️ **Event listeners** para validação ao sair dos campos (blur)
+
+### `CSS/style.css` - Estilos Globais
+- 🎨 **Variáveis CSS customizadas:**
+  - Cores primárias (vermelho Etec e tons de verde)
+  - Tipografia (Roboto)
+  - Paleta de cores para temas claro/escuro
+- 📱 **Responsive Design:**
+  - Grid layouts com `display: grid`
+  - Breakpoints: 900px (tablet) e 600px (mobile)
+  - Flexbox para navegação e componentes
+- 🎯 **Componentes estilizados:**
+  - Navegação com hover effects
+  - Cards com efeitos de transição
+  - Agenda de eventos
+  - Links úteis com sombras
+  - Footer escuro com grid de 3 colunas
 
 ### 📽️Video
 
