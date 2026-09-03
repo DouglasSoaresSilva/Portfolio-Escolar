@@ -102,7 +102,7 @@ salao-beleza/
 
 ---
 
-## 🚀 Como Usar
+## 🚀 Como Rodar
 
 ### 1️⃣ Preparar o Banco de Dados
 
