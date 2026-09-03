@@ -152,26 +152,6 @@ php -S localhost:8000
 
 ---
 
-## 📝 Exemplo de Dados
-
-A tabela `agendamentos` contém:
-
-| Campo | Tipo | Exemplo |
-|-------|------|---------|
-| id | INT | 1 |
-| cliente | VARCHAR(100) | Maria Silva |
-| telefone | VARCHAR(20) | (11) 98765-4321 |
-| email | VARCHAR(120) | maria@email.com |
-| servico | VARCHAR(100) | Corte de Cabelo Feminino |
-| profissional | VARCHAR(100) | Ana Oliveira |
-| data | DATE | 2026-09-05 |
-| hora | TIME | 10:00:00 |
-| observacao | TEXT | Corte em camadas |
-| status | ENUM | agendado \| concluido \| cancelado |
-| criado_em | TIMESTAMP | 2026-09-03 14:30:45 |
-
----
-
 ## 🎨 Design & UX
 
 ### Paleta de Cores
