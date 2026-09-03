@@ -1,10 +1,10 @@
-# 💇‍♀️ Salão de Beleza / Barbearia
+# 💇‍♀️ Salão de Beleza / Barbearia Elegance
 
 > Um sistema de agendamentos online completo para salões de beleza e barbearias, desenvolvido como projeto educacional de Programação Web.
 
 ## 📋 Descrição
 
-O **Salão Elegance & Barbearia** é uma aplicação web que permite gerenciar agendamentos de forma simples e elegante. Os clientes podem agendar serviços, consultar agendamentos e receber confirmações por e-mail. Administradores podem criar, atualizar, visualizar e deletar agendamentos.
+O ***Elegance*** é uma aplicação web que permite gerenciar agendamentos de forma simples e elegante. Os clientes podem agendar serviços, consultar agendamentos e receber confirmações por e-mail. Administradores podem criar, atualizar, visualizar e deletar agendamentos.
 
 **Disciplina:** Programação Web 2 (PW2)  
 **Período:** 2º Ano - Articulação Médio Superior  
