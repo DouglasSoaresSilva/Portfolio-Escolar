@@ -175,14 +175,14 @@ A tabela `agendamentos` contém:
 ## 🎨 Design & UX
 
 ### Paleta de Cores
-- Creme: `#EEE9DF` (fundo geral da página)
-- Creme claro: `#F7F3EA` (fundo do modal)
-- Papel: `#FFFDF8` (cards, campos)
-- Taupe: `#C9C1B1` (bordas, botão secundário)
-- Azul-petróleo: `#2C3B4D` (botões primários, cabeçalho da tabela, badges concluído)
-- Laranja: `#FFB162` (destaques, CTA, foco dos campos)
-- Terracota: `#A35139` (exclusão, erros, hovers quentes)
-- Noite: `#1B2632` (navbar, hero, rodapé, textos)
+- **Creme:** `#EEE9DF` (fundo geral da página)
+- **Creme claro:** `#F7F3EA` (fundo do modal)
+- **Papel:** `#FFFDF8` (cards, campos)
+- **Taupe:** `#C9C1B1` (bordas, botão secundário)
+- **Azul-petróleo:** `#2C3B4D` (botões primários, cabeçalho da tabela, badges concluído)
+- **Laranja:** `#FFB162` (destaques, CTA, foco dos campos)
+- **Terracota:** `#A35139` (exclusão, erros, hovers quentes)
+- **Noite:** `#1B2632` (navbar, hero, rodapé, textos)
 
 ### Responsividade
 - ✅ Desktop (1200px+)
