@@ -1,0 +1,198 @@
+/* =============================================
+   Salão de Beleza & Barbearia Elegance
+   Identidade Visual Corporativa
+   ============================================= */
+
+:root {
+    --cor-primaria: #2c3e50;   /* azul-escuro sofisticado */
+    --cor-secundaria: #c9a227; /* dourado */
+    --cor-clara: #f8f9fa;
+    --cor-texto: #333;
+    --cor-sucesso: #28a745;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--cor-clara);
+    color: var(--cor-texto);
+    margin: 0;
+    padding-top: 76px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    background: linear-gradient(90deg, var(--cor-primaria), #1a252f);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background: linear-gradient(135deg, var(--cor-secundaria), #e8c25c);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.navbar .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--cor-secundaria) !important;
+}
+
+/* ---------- Cabeçalho / Hero ---------- */
+.hero {
+    background: linear-gradient(135deg, var(--cor-primaria), #1a252f);
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-weight: 700;
+}
+
+.hero .lead {
+    color: #e8e8e8;
+}
+
+.destaque-dourado {
+    color: var(--cor-secundaria);
+    font-weight: 700;
+}
+
+/* ---------- Cartões / Cards ---------- */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    background: var(--cor-primaria);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* ---------- Botões ---------- */
+.btn-primary {
+    background: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+}
+
+.btn-primary:hover {
+    background: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+}
+
+.btn-dourado {
+    background: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    color: #fff;
+}
+
+.btn-dourado:hover {
+    background: #b08d1e;
+    color: #fff;
+}
+
+/* ---------- Tabela ---------- */
+.table thead th {
+    background: var(--cor-primaria);
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.badge-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge-agendado {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.badge-concluido {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-cancelado {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ---------- Rodapé ---------- */
+.footer {
+    background: linear-gradient(90deg, var(--cor-primaria), #1a252f);
+    color: #ccc;
+    padding: 30px 0 20px;
+    margin-top: 50px;
+}
+
+.footer h5 {
+    color: var(--cor-secundaria);
+    font-weight: 700;
+}
+
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--cor-secundaria);
+}
+
+.footer .rodape-base {
+    border-top: 1px solid #3a4a5a;
+    padding-top: 15px;
+    margin-top: 20px;
+    text-align: center;
+    color: #999;
+}
+
+/* ---------- Formulário ---------- */
+.form-label {
+    font-weight: 600;
+    color: var(--cor-primaria);
+}
+
+.is-valid {
+    border-color: var(--cor-sucesso) !important;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.85rem;
+}
