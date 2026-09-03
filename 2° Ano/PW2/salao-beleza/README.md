@@ -231,7 +231,7 @@ Este projeto aborda:
 
 ---
 
-## 🐛 Bugs Conhecidos & Melhorias Futuras
+## 🐛 Melhorias Futuras
 
 ### Não Implementado
 - [ ] Autenticação de usuário / login
