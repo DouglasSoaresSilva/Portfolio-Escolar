@@ -1,10 +1,15 @@
 // =============================================
 // Elegance — UI própria + validação (sem Bootstrap)
+// Blocos: menu mobile > modais > alertas >
+//         confirmação de exclusão > validação do formulário.
+// Ganchos vindos do HTML: [data-abrir-modal], [data-fechar-modal],
+// [data-fechar-alerta], .js-excluir, #form-agendamento.
 // =============================================
 
 document.addEventListener('DOMContentLoaded', function () {
 
     // ---------- Menu mobile ----------
+    // Hamburger (#menuToggle) alterna .aberto na lista (#navLinks)
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     if (menuToggle && navLinks) {
@@ -12,12 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const aberto = navLinks.classList.toggle('aberto');
             menuToggle.setAttribute('aria-expanded', aberto ? 'true' : 'false');
         });
+        // Tocar num link fecha o painel (navegação concluída)
         navLinks.addEventListener('click', function (e) {
             if (e.target.closest('a')) navLinks.classList.remove('aberto');
         });
     }
 
     // ---------- Modais próprios ----------
+    // Abrir = somar .aberto ao fundo + travar rolagem da página
     function abrirModal(id) {
         const backdrop = document.getElementById(id);
         if (!backdrop) return;
@@ -30,15 +37,18 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!backdrop) return;
         backdrop.classList.remove('aberto');
         backdrop.setAttribute('aria-hidden', 'true');
-        // Se for o modal de cadastro em modo edição (?editar=), limpa a URL ao fechar
+        // Em modo edição a URL tem ?editar=N: limpa para o modal
+        // não reabrir sozinho num F5 (o PHP abre pelo ?editar=)
         if (backdrop.id === 'modalCadastro' && window.location.search.includes('editar=')) {
             window.history.replaceState({}, document.title, 'index.php');
         }
+        // Só libera a rolagem quando nenhum modal restar aberto
         if (!document.querySelector('.modal-backdrop.aberto')) {
             document.body.style.overflow = '';
         }
     }
 
+    // Qualquer [data-abrir-modal="idDoModal"] abre o modal correspondente
     document.querySelectorAll('[data-abrir-modal]').forEach(function (el) {
         el.addEventListener('click', function (e) {
             e.preventDefault();
@@ -46,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Fechar: botão [data-fechar-modal] ou clique fora da caixa (no fundo)
     document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
         backdrop.addEventListener('click', function (e) {
             if (e.target === backdrop) fecharModal(backdrop);
@@ -57,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Tecla Esc fecha todos os modais abertos
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             document.querySelectorAll('.modal-backdrop.aberto').forEach(fecharModal);
@@ -64,13 +76,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ---------- Alertas ----------
+    // Botão × remove o aviso da tela na hora
     document.querySelectorAll('[data-fechar-alerta]').forEach(function (btn) {
         btn.addEventListener('click', function () {
             const alerta = btn.closest('.alert-zone') || btn.closest('.alert');
             if (alerta) alerta.remove();
         });
     });
-    // Some sozinho após 6s
+    // Segurança: se o usuário ignorar, o aviso some sozinho após 6s
     const zona = document.querySelector('.alert-zone');
     if (zona) {
         setTimeout(function () {
@@ -81,13 +94,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ---------- Confirmação de exclusão (modal próprio) ----------
-    const modalExclusao = document.getElementById('modalExclusao');
+    // Cada link .js-excluir carrega data-cliente; ao clicar, o modal
+    // mostra o nome e o botão #excluirConfirmar aponta para o DELETE real
     const excluirNome = document.getElementById('excluirNome');
     const excluirConfirmar = document.getElementById('excluirConfirmar');
 
     document.querySelectorAll('.js-excluir').forEach(function (link) {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
+            e.preventDefault(); // segura a navegação até confirmar
             if (excluirNome) excluirNome.textContent = link.dataset.cliente || 'este cliente';
             if (excluirConfirmar) excluirConfirmar.href = link.href;
             abrirModal('modalExclusao');
@@ -95,12 +109,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ---------- Validação do formulário ----------
+    // Roda no submit: testa cada campo por regex, marca .is-valid/
+    // .is-invalid, escreve a dica em #feedback-<campo> e só envia se tudo ok
     const form = document.getElementById('form-agendamento');
 
     if (form) {
         form.addEventListener('submit', function (e) {
-            e.preventDefault();
+            e.preventDefault(); // valida primeiro; o envio real é form.submit() no final
 
+            // Tabela de regras: valor atual + regex + mensagem de erro
             const validar = {
                 cliente:      { val: form.cliente.value.trim(),       regra: /^.{3,}$/,                        msg: 'Informe o nome do cliente (mín. 3 caracteres).' },
                 telefone:     { val: form.telefone.value.trim(),      regra: /^\(?\d{2}\)?[\s.-]?\d{4,5}[\s.-]?\d{4}$/, msg: 'Informe um telefone válido. Ex: (11) 99999-9999.' },
@@ -113,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let valido = true;
 
+            // Aplica cada regra e pinta o campo (verde navy OK / terracota erro)
             for (const campo in validar) {
                 const item = validar[campo];
                 const el   = form[campo];
@@ -132,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // Validação adicional: data não pode ser no passado
+            // Regra extra fora do regex: data não pode ser dia passado
             const hoje = new Date();
             hoje.setHours(0, 0, 0, 0);
             const dataAgendamento = new Date(form.data.value + 'T00:00:00');
@@ -145,15 +163,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if (valido) {
-                form.submit();
+                form.submit(); // tudo certo: envia de verdade ao PHP
             } else {
-                // Foca o primeiro campo inválido
+                // Foca o primeiro campo com erro (acessibilidade)
                 const primeiroErro = form.querySelector('.is-invalid');
                 if (primeiroErro) primeiroErro.focus();
             }
         });
 
-        // Limpa o estado de erro ao digitar
+        // Ao digitar/trocar valor, limpa o erro do campo (feedback imediato)
         form.addEventListener('input', function (e) {
             const campo = e.target;
             if (campo.classList && campo.classList.contains('is-invalid')) {
@@ -163,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
         form.addEventListener('change', function (e) {
+            // "change" cobre <select>, que nem sempre dispara "input"
             const campo = e.target;
             if (campo.classList && campo.classList.contains('is-invalid')) {
                 campo.classList.remove('is-invalid');
@@ -174,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Compat: mantém a função antiga caso algum link ainda a use
+// (o fluxo atual usa o modal #modalExclusao em vez de confirm())
 function confirmarExclusao() {
     return true;
 }

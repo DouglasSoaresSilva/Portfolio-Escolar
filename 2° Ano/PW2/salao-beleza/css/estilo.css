@@ -1,48 +1,53 @@
 /* =============================================
    Salão Elegance & Barbearia — CSS próprio
-   Paleta: #EEE9DF · #C9C1B1 · #2C3B4D
-           #FFB162 · #A35139 · #1B2632
-   Sem Bootstrap — design system artesanal
+   Paleta: #EEE9DF (creme) · #C9C1B1 (taupe) · #2C3B4D (navy)
+           #FFB162 (laranja) · #A35139 (terracota) · #1B2632 (noite)
+   Sem Bootstrap: todo componente abaixo é artesanal.
+   Ordem: variáveis > base > navbar > hero > alertas >
+          card/tabela > botões > modal > formulário > rodapé.
    ============================================= */
 
+/* ---------- Variáveis (troque as cores só aqui) ---------- */
 :root {
-    --creme: #EEE9DF;
-    --creme-2: #F7F3EA;
-    --papel: #FFFDF8;
-    --taupe: #C9C1B1;
-    --taupe-escuro: #A89E8A;
-    --navy: #2C3B4D;
-    --navy-claro: #3C5068;
-    --laranja: #FFB162;
-    --laranja-claro: #FFC98D;
-    --terracota: #A35139;
-    --terracota-escura: #7E3A27;
-    --noite: #1B2632;
-    --noite-2: #121B25;
-    --texto: #1B2632;
-    --texto-suave: #5C6672;
-    --borda: rgba(27, 38, 50, 0.14);
-    --sombra: 0 10px 30px rgba(27, 38, 50, 0.12);
-    --sombra-sm: 0 4px 14px rgba(27, 38, 50, 0.10);
-    --raio: 16px;
-    --raio-sm: 10px;
+    --creme: #EEE9DF;            /* fundo geral da página */
+    --creme-2: #F7F3EA;          /* fundo do modal (levemente mais claro) */
+    --papel: #FFFDF8;            /* cartões e campos (quase branco quente) */
+    --taupe: #C9C1B1;            /* bordas, botões secundários, textos suaves */
+    --taupe-escuro: #A89E8A;     /* variação escura (detalhes) */
+    --navy: #2C3B4D;             /* cor primária: botões, thead, títulos */
+    --navy-claro: #3C5068;       /* variação clara (hovers) */
+    --laranja: #FFB162;          /* acento/CTA: realces, foco, badges */
+    --laranja-claro: #FFC98D;    /* gradiente do botão de destaque */
+    --terracota: #A35139;        /* perigo/ação destrutiva + hover quente */
+    --terracota-escura: #7E3A27; /* borda do alerta de erro */
+    --noite: #1B2632;            /* superfícies escuras: navbar, hero, rodapé */
+    --noite-2: #121B25;          /* tom ainda mais fundo (gradientes) */
+    --texto: #1B2632;            /* cor padrão do texto */
+    --texto-suave: #5C6672;      /* texto secundário (vazio, ajuda) */
+    --borda: rgba(27, 38, 50, 0.14);      /* divisórias sutis */
+    --sombra: 0 10px 30px rgba(27, 38, 50, 0.12);  /* sombra grande (card/modal) */
+    --sombra-sm: 0 4px 14px rgba(27, 38, 50, 0.10); /* sombra pequena (alertas) */
+    --raio: 16px;                /* raio padrão (card) */
+    --raio-sm: 10px;             /* raio pequeno (botões, campos) */
     --fonte: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
     --fonte-titulo: 'Fraunces', 'Playfair Display', Georgia, serif;
 }
 
-/* ---------- Reset ---------- */
+/* ---------- Reset + base ---------- */
+/* Zera margens e inclui padding/borda na largura (evita estouros) */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
     font-family: var(--fonte);
+    /* Duas manchas suaves sobre o creme: profundidade sem imagem */
     background:
         radial-gradient(900px 320px at 85% -60px, rgba(255, 177, 98, 0.25), transparent 60%),
         radial-gradient(700px 300px at -10% 20%, rgba(201, 193, 177, 0.35), transparent 60%),
         var(--creme);
     color: var(--texto);
     line-height: 1.55;
-    padding-top: 72px;
+    padding-top: 72px; /* compensa a navbar fixa (mesma altura dela) */
     min-height: 100vh;
 }
 ::selection { background: var(--laranja); color: var(--noite); }
@@ -50,26 +55,27 @@ img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 button { font-family: inherit; }
 
+/* Limita a largura e centraliza o conteúdo */
 .container {
     width: min(1120px, 100% - 40px);
     margin-inline: auto;
 }
 
-/* ---------- Navbar ---------- */
+/* ---------- Navbar (fixa, escura, com blur) ---------- */
 .navbar {
     position: fixed;
-    inset: 0 0 auto 0;
-    z-index: 60;
+    inset: 0 0 auto 0; /* gruda no topo, largura total */
+    z-index: 60;       /* acima do conteúdo, abaixo dos modais (80) */
     background: rgba(27, 38, 50, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 3px solid var(--laranja);
+    border-bottom: 3px solid var(--laranja); /* filete da identidade */
 }
 .navbar-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 72px; /* mesma medida do padding-top do body */
     gap: 16px;
 }
 .brand {
@@ -82,6 +88,7 @@ button { font-family: inherit; }
     font-size: 1.25rem;
     letter-spacing: 0.5px;
 }
+/* Selo "E": círculo em gradiente laranja->terracota */
 .brand-logo {
     width: 42px;
     height: 42px;
@@ -109,11 +116,12 @@ button { font-family: inherit; }
     font-weight: 500;
     font-size: 0.95rem;
     padding: 9px 14px;
-    border-radius: 999px;
+    border-radius: 999px; /* pílula */
     transition: background 0.2s, color 0.2s;
 }
 .nav-links a:hover { color: var(--laranja); background: rgba(255, 177, 98, 0.12); }
 .nav-links a.ativo { color: var(--noite); background: var(--laranja); font-weight: 600; }
+/* Hamburger: escondido no desktop, vira coluna no mobile */
 .menu-toggle {
     display: none;
     background: transparent;
@@ -136,11 +144,12 @@ button { font-family: inherit; }
     transition: transform 0.25s, opacity 0.25s;
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (faixa de apresentação) ---------- */
 .hero {
     position: relative;
     overflow: hidden;
     color: #fff;
+    /* Noite->navy com brilhos laranja/terracota nos cantos */
     background:
         radial-gradient(600px 300px at 80% 10%, rgba(255, 177, 98, 0.35), transparent 60%),
         radial-gradient(500px 320px at 10% 90%, rgba(163, 81, 57, 0.55), transparent 60%),
@@ -148,6 +157,7 @@ button { font-family: inherit; }
     padding: 64px 0 72px;
     text-align: center;
 }
+/* Curva creme na base: transição suave hero -> conteúdo */
 .hero::after {
     content: "";
     position: absolute;
@@ -156,6 +166,7 @@ button { font-family: inherit; }
     background: var(--creme);
     clip-path: ellipse(60% 100% at 50% 100%);
 }
+/* Selo pequeno acima do título */
 .hero-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -174,7 +185,7 @@ button { font-family: inherit; }
 .hero h1 {
     font-family: var(--fonte-titulo);
     font-weight: 600;
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(2rem, 5vw, 3.2rem); /* cresce com a tela, com limites */
     line-height: 1.1;
     color: var(--creme);
     letter-spacing: 0.3px;
@@ -190,6 +201,7 @@ button { font-family: inherit; }
     font-size: 1.05rem;
     font-weight: 300;
 }
+/* Cartão de estatística (total de agendamentos) */
 .hero-stats {
     display: flex;
     justify-content: center;
@@ -212,7 +224,7 @@ button { font-family: inherit; }
 }
 .hero-stat span { font-size: 0.8rem; color: var(--taupe); letter-spacing: 0.4px; }
 
-/* ---------- Alertas ---------- */
+/* ---------- Alertas (feedback de sucesso/erro) ---------- */
 .alert-zone { margin-top: 22px; }
 .alert {
     display: flex;
@@ -224,25 +236,28 @@ button { font-family: inherit; }
     font-size: 0.95rem;
     box-shadow: var(--sombra-sm);
     border: 1px solid transparent;
-    animation: deslizar 0.3s ease;
+    animation: deslizar 0.3s ease; /* entrada suave */
 }
 .alert-dot {
     width: 10px; height: 10px;
     border-radius: 50%;
     flex-shrink: 0;
 }
+/* Sucesso: papel claro com texto navy */
 .alert-sucesso {
     background: var(--papel);
     border-color: var(--taupe);
     color: var(--navy);
 }
 .alert-sucesso .alert-dot { background: var(--navy); box-shadow: 0 0 0 4px rgba(44, 59, 77, 0.15); }
+/* Erro: bloco terracota com texto branco */
 .alert-erro {
     background: var(--terracota);
     border-color: var(--terracota-escura);
     color: #fff;
 }
 .alert-erro .alert-dot { background: #fff; box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25); }
+/* Botão × que dispensa o alerta (gancho: data-fechar-alerta) */
 .alert-fechar {
     margin-left: auto;
     background: transparent;
@@ -261,21 +276,21 @@ button { font-family: inherit; }
     to { opacity: 1; transform: none; }
 }
 
-/* ---------- Conteúdo / Card ---------- */
+/* ---------- Conteúdo / Card (moldura da tabela) ---------- */
 .conteudo { margin-top: 26px; margin-bottom: 20px; }
 .card {
     background: var(--papel);
     border: 1px solid var(--taupe);
     border-radius: var(--raio);
     box-shadow: var(--sombra);
-    overflow: hidden;
+    overflow: hidden; /* cantos do header respeitam o raio */
 }
 .card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 14px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* empilha título/botão em telas estreitas */
     padding: 18px 22px;
     background: linear-gradient(90deg, var(--navy), var(--noite));
     color: var(--creme);
@@ -283,6 +298,7 @@ button { font-family: inherit; }
 }
 .card-header-titulo { display: flex; align-items: center; gap: 12px; }
 .card-header-titulo h2 { font-size: 1.1rem; font-weight: 600; }
+/* Pílula com a contagem de registros */
 .contador {
     font-size: 0.75rem;
     font-weight: 600;
@@ -293,15 +309,15 @@ button { font-family: inherit; }
     border-radius: 999px;
     letter-spacing: 0.4px;
 }
-.card-body { padding: 0; }
-.tabela-wrap { overflow-x: auto; }
+.card-body { padding: 0; } /* a tabela encosta nas bordas do card */
+.tabela-wrap { overflow-x: auto; } /* rolagem horizontal só em telas pequenas */
 
 /* ---------- Tabela ---------- */
 table.tabela {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.92rem;
-    min-width: 820px;
+    min-width: 820px; /* força a rolagem do .tabela-wrap no mobile */
 }
 .tabela thead th {
     background: var(--navy);
@@ -322,9 +338,10 @@ table.tabela {
     color: var(--texto);
 }
 .tabela tbody td:first-child { padding-left: 22px; }
-.tabela tbody tr:nth-child(odd) { background: rgba(201, 193, 177, 0.16); }
-.tabela tbody tr:hover { background: rgba(255, 177, 98, 0.20); }
+.tabela tbody tr:nth-child(odd) { background: rgba(201, 193, 177, 0.16); } /* zebrado taupe */
+.tabela tbody tr:hover { background: rgba(255, 177, 98, 0.20); }           /* hover pêssego */
 .tabela tbody tr:last-child td { border-bottom: none; }
+/* Número do ID em pastilha */
 .cel-id {
     display: inline-flex;
     align-items: center;
@@ -340,12 +357,13 @@ table.tabela {
     color: var(--navy);
 }
 .cel-cliente { font-weight: 600; }
-.cel-data, .cel-hora { white-space: nowrap; font-variant-numeric: tabular-nums; }
-.cel-acoes { white-space: nowrap; }
+.cel-data, .cel-hora { white-space: nowrap; font-variant-numeric: tabular-nums; } /* números alinhados */
+.cel-acoes { white-space: nowrap; } /* botões Editar/Excluir sempre na mesma linha */
+/* Linha única exibida quando não há agendamentos */
 .estado-vazio { text-align: center; color: var(--texto-suave); padding: 44px 20px !important; }
 .estado-vazio strong { display: block; font-size: 1.05rem; color: var(--navy); margin-bottom: 4px; }
 
-/* ---------- Badges ---------- */
+/* ---------- Badges de status (pílulas coloridas) ---------- */
 .badge-status {
     display: inline-block;
     padding: 5px 13px;
@@ -365,6 +383,7 @@ table.tabela {
 .badge-cancelado { background: var(--terracota); color: #fff; }
 
 /* ---------- Botões ---------- */
+/* Base compartilhada: links e <button> com class="btn" ficam iguais */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -380,23 +399,28 @@ table.tabela {
     transition: transform 0.12s, box-shadow 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
     white-space: nowrap;
 }
-.btn:active { transform: scale(0.97); }
+.btn:active { transform: scale(0.97); } /* clique com "afundada" sutil */
+/* Destaque em laranja (ex: "+ Novo Agendamento") */
 .btn-acento {
     background: linear-gradient(135deg, var(--laranja), var(--laranja-claro));
     color: var(--noite);
     box-shadow: 0 6px 16px rgba(255, 177, 98, 0.4);
 }
 .btn-acento:hover { background: linear-gradient(135deg, var(--terracota), var(--laranja)); color: #fff; }
+/* Ação principal do modal (Agendar/Salvar) */
 .btn-primario { background: var(--navy); color: var(--creme); }
 .btn-primario:hover { background: var(--terracota); }
+/* Botão claro sobre fundo escuro (não usado no layout atual; utilitário) */
 .btn-fantasma {
     background: transparent;
     border-color: rgba(238, 233, 223, 0.4);
     color: var(--creme);
 }
 .btn-fantasma:hover { border-color: var(--laranja); color: var(--laranja); }
+/* Ação secundária (Cancelar) */
 .btn-secundario { background: var(--taupe); color: var(--noite); }
 .btn-secundario:hover { background: var(--navy); color: var(--creme); }
+/* Ações da tabela: contorno fino, preenchem no hover */
 .btn-editar {
     background: transparent;
     border-color: var(--navy);
@@ -413,13 +437,15 @@ table.tabela {
     font-size: 0.82rem;
 }
 .btn-excluir:hover { background: var(--terracota); color: #fff; }
+/* Versão compacta (cabeçalho do card) */
 .btn-pequeno { padding: 7px 14px; font-size: 0.85rem; }
 
-/* ---------- Modal ---------- */
+/* ---------- Modal (fundo + caixa) ---------- */
+/* O fundo escuro: invisível por padrão, .aberto (via JS) revela */
 .modal-backdrop {
     position: fixed;
     inset: 0;
-    z-index: 80;
+    z-index: 80; /* acima de tudo */
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -430,9 +456,10 @@ table.tabela {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.25s, visibility 0.25s;
-    overflow-y: auto;
+    overflow-y: auto; /* modal alto rola dentro do fundo */
 }
 .modal-backdrop.aberto { opacity: 1; visibility: visible; }
+/* A caixa: sobe/desce 16px ao abrir (transição) */
 .modal {
     width: min(760px, 100%);
     background: var(--creme-2);
@@ -444,6 +471,7 @@ table.tabela {
     transition: transform 0.25s;
 }
 .modal-backdrop.aberto .modal { transform: none; }
+/* Variante estreita (confirmação de exclusão) */
 .modal-pequeno { width: min(440px, 100%); }
 .modal-header {
     display: flex;
@@ -456,6 +484,7 @@ table.tabela {
     border-bottom: 3px solid var(--laranja);
 }
 .modal-header h3 { font-size: 1.1rem; font-weight: 600; }
+/* Botão × do modal (gancho: data-fechar-modal) */
 .modal-fechar {
     background: rgba(238, 233, 223, 0.12);
     border: 1px solid rgba(238, 233, 223, 0.3);
@@ -479,21 +508,24 @@ table.tabela {
     border-top: 1px solid var(--taupe);
     background: var(--creme);
 }
+/* Texto da confirmação de exclusão (nome do cliente em terracota) */
 .texto-exclusao { color: var(--texto-suave); font-size: 0.95rem; }
 .texto-exclusao strong { color: var(--terracota); }
 
-/* ---------- Formulário ---------- */
+/* ---------- Formulário (grade + campos) ---------- */
+/* Grade de 12 colunas: .field ocupa 6 (meia linha), .field-full a linha toda */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 16px;
 }
 .field { grid-column: span 6; display: flex; flex-direction: column; gap: 6px; }
-.field-3 { grid-column: span 3; }
+.field-3 { grid-column: span 3; } /* 1/4 de linha: data e hora lado a lado */
 .field-4 { grid-column: span 6; }
 .field-full { grid-column: 1 / -1; }
 .form-label { font-weight: 600; font-size: 0.86rem; color: var(--navy); }
-.form-label .obrigatorio { color: var(--terracota); }
+.form-label .obrigatorio { color: var(--terracota); } /* asterisco * */
+/* Campos de texto, data, hora, select e textarea compartilham o visual */
 .form-control {
     width: 100%;
     font-family: inherit;
@@ -508,28 +540,32 @@ table.tabela {
 }
 textarea.form-control { resize: vertical; min-height: 64px; }
 .form-control::placeholder { color: rgba(27, 38, 50, 0.38); }
+/* Foco: borda laranja + anel suave */
 .form-control:focus {
     border-color: var(--laranja);
     box-shadow: 0 0 0 4px rgba(255, 177, 98, 0.30);
     background: #fff;
 }
+/* Select com seta customizada (SVG embutido, sem imagem externa) */
 select.form-control {
     appearance: none;
     -webkit-appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%232C3B4D' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
-    padding-right: 36px;
+    padding-right: 36px; /* espaço para a seta não cobrir o texto */
     cursor: pointer;
 }
 select.form-control:disabled { background-color: rgba(201, 193, 177, 0.4); cursor: not-allowed; }
+/* Estados aplicados pelo JS na validação: válido (navy) / inválido (terracota) */
 .form-control.is-valid { border-color: var(--navy); background-image: none; }
 .form-control.is-invalid { border-color: var(--terracota); box-shadow: 0 0 0 4px rgba(163, 81, 57, 0.18); }
+/* Mensagem de erro sob o campo (some quando vazia) */
 .feedback {
     font-size: 0.8rem;
     font-weight: 500;
     color: var(--terracota);
-    min-height: 1.1em;
+    min-height: 1.1em; /* reserva espaço: o layout não "pula" ao errar */
 }
 .feedback:empty { display: none; }
 
@@ -543,7 +579,7 @@ select.form-control:disabled { background-color: rgba(201, 193, 177, 0.4); curso
 }
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
     gap: 28px;
     padding-bottom: 30px;
 }
@@ -556,6 +592,7 @@ select.form-control:disabled { background-color: rgba(201, 193, 177, 0.4); curso
 }
 .footer p { font-size: 0.9rem; font-weight: 300; }
 .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: var(--creme); font-weight: 700; font-size: 1.1rem; }
+/* Linha final de direitos autorais */
 .rodape-base {
     border-top: 1px solid rgba(201, 193, 177, 0.25);
     padding: 16px 0 20px;
@@ -564,7 +601,7 @@ select.form-control:disabled { background-color: rgba(201, 193, 177, 0.4); curso
     color: var(--taupe);
 }
 
-/* ---------- Barra de rolagem ---------- */
+/* ---------- Barra de rolagem (WebKit) ---------- */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--creme); }
 ::-webkit-scrollbar-thumb { background: var(--taupe); border-radius: 8px; }
@@ -572,14 +609,15 @@ select.form-control:disabled { background-color: rgba(201, 193, 177, 0.4); curso
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 860px) {
-    .footer-grid { grid-template-columns: 1fr; gap: 20px; }
-    .field, .field-3, .field-4 { grid-column: 1 / -1; }
+    .footer-grid { grid-template-columns: 1fr; gap: 20px; } /* rodapé empilha */
+    .field, .field-3, .field-4 { grid-column: 1 / -1; }     /* 1 campo por linha */
     .hero { padding: 52px 0 60px; }
 }
 @media (max-width: 720px) {
-    body { padding-top: 64px; }
+    body { padding-top: 64px; }          /* navbar fica mais baixa */
     .navbar-inner { height: 64px; }
-    .menu-toggle { display: inline-flex; }
+    .menu-toggle { display: inline-flex; } /* mostra o hamburger */
+    /* Menu vira painel suspenso (JS alterna .aberto) */
     .nav-links {
         position: absolute;
         top: 64px;
