@@ -175,12 +175,6 @@ A tabela `agendamentos` contém:
 ## 🎨 Design & UX
 
 ### Paleta de Cores
-- **Dourado:** `#D4AF37` (destaque, botoẽs primários)
-- **Preto:** `#1a1a1a` (fundo, textos)
-- **Branco:** `#ffffff` (cards, modais)
-- **Verde:** `#4CAF50` (sucesso, badges)
-- **Vermelho:** `#f44336` (erro, exclusão)
-
 - Creme: `#EEE9DF` (fundo geral da página)
 - Creme claro: `#F7F3EA` (fundo do modal)
 - Papel: `#FFFDF8` (cards, campos)
