@@ -181,14 +181,14 @@ A tabela `agendamentos` contém:
 - **Verde:** `#4CAF50` (sucesso, badges)
 - **Vermelho:** `#f44336` (erro, exclusão)
 
-- Creme: #EEE9DF (fundo geral da página)
-- Creme claro: #F7F3EA (fundo do modal)
-- Papel: #FFFDF8 (cards, campos)
-- Taupe: #C9C1B1 (bordas, botão secundário)
-- Azul-petróleo: #2C3B4D (botões primários, cabeçalho da tabela, badges concluído)
-- Laranja: #FFB162 (destaques, CTA, foco dos campos)
-- Terracota: #A35139 (exclusão, erros, hovers quentes)
-- Noite: #1B2632 (navbar, hero, rodapé, textos)
+- Creme: `#EEE9DF` (fundo geral da página)
+- Creme claro: `#F7F3EA` (fundo do modal)
+- Papel: `#FFFDF8` (cards, campos)
+- Taupe: `#C9C1B1` (bordas, botão secundário)
+- Azul-petróleo: `#2C3B4D` (botões primários, cabeçalho da tabela, badges concluído)
+- Laranja: `#FFB162` (destaques, CTA, foco dos campos)
+- Terracota: `#A35139` (exclusão, erros, hovers quentes)
+- Noite: `#1B2632` (navbar, hero, rodapé, textos)
 
 ### Responsividade
 - ✅ Desktop (1200px+)
@@ -268,14 +268,7 @@ Estudante de Desenvolvimento de Sistemas - Articulação Médio Superior
 
 ## 📄 Licença
 
-Este projeto é de uso educacional. Sinta-se livre para estudar, modificar e distribuir.
-
----
-
-## 📞 Contato
-
-- **GitHub:** [@DouglasSoaresSilva](https://github.com/DouglasSoaresSilva)
-- **E-mail:** (veja o perfil GitHub)
+Este projeto é de uso educacional. Sinta-se livre para estudar e modificar.
 
 ---
 
