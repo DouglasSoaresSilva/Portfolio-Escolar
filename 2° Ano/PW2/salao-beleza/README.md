@@ -1,4 +1,4 @@
-# 💇‍♀️ Salão Elegance & Barbearia
+# 💇‍♀️ Salão de Beleza / Barbearia
 
 > Um sistema de agendamentos online completo para salões de beleza e barbearias, desenvolvido como projeto educacional de Programação Web.
 
