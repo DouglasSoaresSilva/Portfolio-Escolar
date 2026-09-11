@@ -68,13 +68,13 @@ salao-beleza/
 
 ### Arquivos Principais
 
-**`index.php`** (346 linhas)
+**`index.php`**)
 - Renderiza a página completa com HTML e PHP
 - Busca agendamentos do banco
 - Exibe modal para criar/editar
 - Mostra mensagens de feedback
 
-**`banco.sql`** (43 linhas)
+**`banco.sql`**
 - Cria banco `salao_beleza` com charset UTF-8
 - Define tabela `agendamentos` com 10 colunas
 - Insere 4 registros de exemplo para teste
