@@ -224,11 +224,8 @@ Este projeto aborda:
 - [ ] Sistema de comentários/avaliações
 
 ### Possíveis Melhorias
-- Implementar HTTPS
 - Cache de agendamentos
 - Paginação na tabela (se muitos registros)
-- Dark mode
-- Suporte a múltiplas unidades
 - Relatórios de faturamento
 
 ---
