@@ -68,7 +68,7 @@ salao-beleza/
 
 ### Arquivos Principais
 
-**`index.php`**)
+**`index.php`**
 - Renderiza a página completa com HTML e PHP
 - Busca agendamentos do banco
 - Exibe modal para criar/editar
