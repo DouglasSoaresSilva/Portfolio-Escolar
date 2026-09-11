@@ -232,7 +232,8 @@ Este projeto aborda:
 
 ## 🎥 Video
 
-Uploading Salão Elegance & Barbearia.mp4…
+https://github.com/user-attachments/assets/53f398c3-e5d3-4274-afbf-4a3ff2935faf
+---
 
 ## 👨‍💻 Autor
 
@@ -256,5 +257,5 @@ Este projeto é de uso educacional. Sinta-se livre para estudar e modificar.
 
 ---
 
-**Última atualização:** Setembro de 2026  
+**Última atualização:** 11 de Setembro de 2026  
 **Status:** ✅ Funcional (versão 2.0)
