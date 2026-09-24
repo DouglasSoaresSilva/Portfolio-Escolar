@@ -1,0 +1,180 @@
+/* ===== TEMA LINKIN PARK ===== */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+
+.lp-tela {
+  min-height: 100vh;
+  background:
+    radial-gradient(1000px 400px at 50% -100px, rgba(220, 38, 38, 0.18), transparent),
+    linear-gradient(#0a0a0b, #111113 60%, #0a0a0b);
+  color: #e7e7e7;
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 48px;
+  box-sizing: border-box;
+}
+
+/* TOPO */
+.lp-topo { text-align: center; max-width: 760px; }
+.lp-tag {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #ef4444;
+  font-weight: 600;
+  margin: 0;
+}
+.lp-logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(42px, 8vw, 76px);
+  margin: 8px 0 6px;
+  letter-spacing: 6px;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(239, 68, 68, 0.45);
+  line-height: 1;
+}
+.lp-sub {
+  color: #a1a1aa;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* CONTROLES */
+.lp-controles {
+  width: 100%;
+  max-width: 760px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lp-busca {
+  width: 100%;
+  box-sizing: border-box;
+  background: #18181b;
+  border: 1px solid #2b2b30;
+  color: #fff;
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 15px;
+  outline: none;
+}
+.lp-busca:focus { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,.2); }
+.lp-acoes { display: flex; gap: 8px; }
+.lp-acoes button {
+  flex: 1;
+  background: #1d1d21;
+  color: #d4d4d8;
+  border: 1px solid #2e2e33;
+  border-radius: 8px;
+  padding: 9px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.lp-acoes button:hover { border-color: #ef4444; color: #fff; }
+
+/* LISTA */
+.lp-lista {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+.lp-vazio { text-align: center; color: #a1a1aa; }
+
+/* CARD DO ÁLBUM */
+.lp-album {
+  background: #141416;
+  border: 1px solid #26262b;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.lp-album.aberto { border-color: #ef4444; box-shadow: 0 0 24px rgba(239,68,68,.15); }
+
+.lp-album-topo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: none;
+  border: none;
+  color: inherit;
+  text-align: left;
+  padding: 16px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.lp-capa {
+  width: 62px; height: 62px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #fff;
+  background: linear-gradient(135deg, #3f3f46, #18181b 60%, #7f1d1d);
+  border: 1px solid #3f3f46;
+}
+
+.lp-album-info { flex: 1; }
+.lp-album-info h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 21px;
+  margin: 0;
+  letter-spacing: 1px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.lp-ano { margin: 4px 0; font-size: 12px; color: #ef4444; font-weight: 600; letter-spacing: 1px; }
+.lp-desc { margin: 0; font-size: 13px; color: #a1a1aa; line-height: 1.5; }
+.lp-seta { color: #71717a; font-size: 14px; }
+
+/* FAIXAS */
+.lp-faixas {
+  list-style: none;
+  margin: 0;
+  padding: 6px 8px 10px;
+  border-top: 1px solid #232327;
+}
+.lp-faixa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.lp-faixa:nth-child(odd) { background: rgba(255,255,255,.03); }
+.lp-faixa:hover { background: rgba(239,68,68,.1); }
+.lp-num { color: #52525b; font-size: 12px; font-weight: 600; width: 24px; }
+.lp-nome { flex: 1; color: #e4e4e7; }
+.lp-fav {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #52525b;
+  padding: 2px 6px;
+}
+.lp-fav:hover { transform: scale(1.2); color: #fbbf24; }
+.lp-fav.ativa { color: #fbbf24; text-shadow: 0 0 10px rgba(251,191,36,.6); }
+
+/* RODAPÉ */
+.lp-rodape { margin-top: 28px; text-align: center; max-width: 760px; }
+.lp-rodape p { font-size: 12px; color: #71717a; margin: 6px 0; }
+.lp-rodape code {
+  background: #1f1f23;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 1px 6px;
+  color: #fca5a5;
+  font-size: 12px;
+}
+.lp-credito { font-size: 11px !important; }

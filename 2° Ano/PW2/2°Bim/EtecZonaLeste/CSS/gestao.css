@@ -1,0 +1,232 @@
+:root {
+    --primary: #c40000;
+    --primary-dark: #a00000;
+    --accent: #0d5c5c;
+    --text: #333;
+    --muted: #777;
+    --bg: #fbfbf9;
+    --background2: #1b1b1b;
+    --ghostwhite: #f8f8f9;
+    --coolgray: #e5e7eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+}
+
+.page-title {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.page-title h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-underline {
+    height: 4px;
+    background: var(--primary);
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--muted);
+    max-width: 800px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 2rem 0 1.5rem 0;
+    border-left: 5px solid var(--primary);
+    padding-left: 1rem;
+    color: var(--accent);
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    list-style: none;
+}
+
+.card-gestor {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px solid var(--coolgray);
+}
+
+.card-gestor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    background-color: var(--ghostwhite);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--accent);
+}
+
+.card-gestor h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+    color: var(--text);
+}
+
+.cargo {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.email-gestor {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    word-break: break-word;
+    font-style: normal;
+}
+
+.email-gestor a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.email-gestor a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.organograma {
+    background: var(--ghostwhite);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--coolgray);
+}
+
+.org-level {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.org-item {
+    background: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 40px;
+    font-weight: 500;
+    text-align: center;
+    min-width: 160px;
+    border-left: 3px solid var(--primary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.org-item strong {
+    display: block;
+    color: var(--accent);
+}
+
+.connector {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--muted);
+    margin: 0.5rem 0;
+}
+
+/* FOOTER */
+footer {
+  background: var(--background2);
+  color: #fff;
+  padding: 40px 30px;
+  margin-top: 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: .8;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem 15px;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .grid-cards {
+        grid-template-columns: 1fr;
+    }
+    .org-level {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .org-item {
+        width: 100%;
+        max-width: 250px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .social-links {
+        justify-content: center;
+    }
+}
